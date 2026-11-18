@@ -1,0 +1,24 @@
+
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: jobflow-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: jobflow_auth
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  mysql_data:
+
+
+#    PS D:\Intellij_Files\jobflow\auth-service> docker exec -it jobflow-mysql mysql -uroot -proot123
