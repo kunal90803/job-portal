@@ -32,3 +32,4 @@ management:
 jwt:
   secret: KvrQmuqJn1bMVnxgc2fD5JwWb1Pc7l8Np9n+xyGf/u0=
   expiration: 900000
+  refresh-token-expiration: 604800000
